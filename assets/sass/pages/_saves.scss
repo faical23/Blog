@@ -1,0 +1,18 @@
+.save_page{
+    background-color: #eeeeee !important;
+}
+
+.saves_post{
+    padding-top: 100px;
+    text-align: center;
+    .recent-post{
+        text-align: start !important;
+        .row{
+            justify-content: space-evenly !important;
+
+        }
+        .btn-read-more{
+            justify-content: flex-end !important;
+        }
+    }
+}

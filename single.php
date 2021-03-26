@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body class="single_page">
 
 	
 

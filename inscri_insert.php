@@ -6,6 +6,7 @@
 		$userName = $_POST["username_insci"];
 		$userEmail = $_POST["email_inscri"];
 		$userPassword = $_POST["password_inscri"];
+		$hash_password = password_hash($userPassword  , PASSWORD_DEFAULT);
 		$userConfirmPawwsord = $_POST["password_confirm"];
 
 
@@ -14,7 +15,7 @@
         $regix_password = '/^[A-Za-z0-9]\w{5,}$/';
 
 
-		if(isset($_POST["login-btn"]))
+		if(isset($_POST["submit_inscri"]))
 		{
             if (!empty($userName) && !empty($userEmail) && !empty($userPassword) && !empty($userConfirmPawwsord)) {
 
@@ -22,7 +23,7 @@
                 if (preg_match($regix_name, $userName) && preg_match($regix_email, $userEmail) && preg_match($regix_password, $userPassword)&& preg_match($regix_password, $userConfirmPawwsord)) {
 
 
-					$sql_requet = "INSERT INTO user (username,email,password) VALUES ('$userName','$userEmail','$userPassword')";
+					$sql_requet = "INSERT INTO user (username,email,password) VALUES ('$userName','$userEmail','$hash_password')";
 
 					if(mysqli_query($connection_DB,$sql_requet))
 					{
@@ -30,7 +31,7 @@
 						$last_id = mysqli_insert_id($connection_DB);
                         echo "insert work </br>" ;
                         echo "id = " . $last_id ;
-                        $sql_requet = "INSERT INTO position (id,email,password,role) VALUES ('$last_id','$userEmail','$userPassword','user')";
+                        $sql_requet = "INSERT INTO position (id,email,password,role) VALUES ('$last_id','$userEmail','$hash_password','user')";
                         mysqli_query($connection_DB,$sql_requet);
                         header('Location: ./index.php?topic=');  
 						$_SESSION["id"] = $last_id;

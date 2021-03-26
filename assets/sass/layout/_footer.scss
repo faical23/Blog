@@ -2,8 +2,14 @@ footer{
     background-color: $primary_color_1;
     padding-top: 50px;
     padding-bottom: 50px;
+    color: white !important;
     .logo-footer{
-        padding-bottom: 10px;
+        h1 {
+            font-family: 'RowanMaskide';
+            font-size: 50px;
+            position: relative;
+            bottom: 12px;
+        }
     }
     p{
         font-family: 'Poping-rugelar';
@@ -16,6 +22,9 @@ footer{
         font-size: 25px;
         font-style: normal;
     }
+    h5{
+        color: white;
+    }
     a{
         color: black;
         cursor: pointer;
@@ -27,7 +36,9 @@ footer{
     .email-footer,.message-footer{
         width: 100%;
         border: 1px solid black;
-        border-radius: 15px;
+        border-radius: 7px;
+        padding-left: 10px;
+        padding: 10px;
     }
     .email-footer{
         height: 40px;
@@ -62,7 +73,7 @@ footer{
         background-color: white;
         color: black;
         cursor: pointer;
-        border-radius:50px ;
+        border-radius:7px ;
         &:hover{
             background-color: black;
             color: white;

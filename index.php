@@ -1,6 +1,6 @@
 <?php
 
-	// session_start();
+	session_start();
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -39,7 +39,7 @@
 	
 
 <!--Start nav-bar-->
-	<?php include "include/navbar.php"?><!-- include navbar from navbar.php -->
+	<?php include "include/navbar.php"?>
 <!-- end header  -->
 
 <!-- start sections -->
@@ -48,7 +48,7 @@
 			<!-- strat treding post -->
 			<div class ="trednig-post">
 				<div class="container">
-					<h1 class="section-titre"> Treding post </h1>
+					<h1 class="section-titre"> Last post </h1>
 
 					<div id="multi-item-example" class="carousel slide carousel-multi-item post-wrapper" data-ride="carousel">
 						
@@ -191,7 +191,7 @@
 													<div class="post-preview">
 														<a href="single.html"><h3 class="titre-article"><?php  echo $value["titre"] ?></h3></a>
 														<P class="text-articl"><?php 
-														$text_article  = substr($value["text"], 0, 190);
+														$text_article  = substr($value["text_article"], 0, 190);
 														echo $text_article . " . . ."?></P>
 														<div class="create-by">
 															<img src="assets/img/icons/admin.svg" alt="" class="icon-admine">
@@ -206,6 +206,16 @@
 															<h6 class="time-created"><?php  echo $value["date"] ?><h6>
 														</div>
 														<div class="btn-read-more">
+														<?php
+															if (!empty($_SESSION['login']) && $_SESSION['login'] == "user") {
+														?>
+															<a href="saves._application.php?id=<?php echo $value["id"]?>">
+																<div class="saves">
+																<svg id="saves_icons" onclick="saves( <?php echo $value["id"]?>)"  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>															</div>
+															</a>
+													<?php
+															}
+														?>	
 															<a href="single.php?id=<?php echo $value['id'] ?>" class="btn read-more">Read-more</a>
 														</div>
 
@@ -268,11 +278,9 @@
 
 <!-- start footer -->
 	<?php include "include/footer.php"?>   <!-- include footer from footer.php -->
-<!-- end footer
 
 
-		<!-- Plugins
-	================================================== -->
+	<!-- Plugins ================================================== -->
 	<!-- jQuery -->
 	<script src="./assets/js/jquery-3.5.1.min.js"></script>
 	<!-- Popper Js -->
@@ -291,6 +299,13 @@ var search = () =>{
 	console.log(topic);
 }
 
+
+var saves = (id)  =>{
+	let saves_icons =document.querySelector("#saves_icons");
+
+	saves_icons.style="fill:red"
+	window.location.href = `saves.php`;
+}
 
 
 	</script>

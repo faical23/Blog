@@ -1,19 +1,20 @@
 .dashboard{
     display: flex;
     .side_bar{
-        background-color: $primary_color_2 ;
+        background-color: #a688fc !important;
         width: 15%;
         height: 100vh;
 
         .item_menu{
-            background-color: $primary_color_2;
+            background-color: #a688fc;
             padding: 18px 10px;
             border-bottom: 1px solid white;
             &:hover{
                     background-color: white;
-                    border-right: 7px solid $primary_color_2;
+                    border-right: 7px solid #a688fc;
                     cursor: pointer;
                     transition: all 0.5s ease-in-out;
+                    color: $primary_color_1;
             }
         }
         a{
@@ -32,7 +33,7 @@
         button{
             padding: 17px 42px;
             margin-bottom: 50px;
-            border-radius: 30Px;
+            border-radius: 10Px;
             color: white;
             background-color: $primary_color_1;
             cursor: pointer;
@@ -60,7 +61,7 @@ table{
     border-right: none;
     font-family: 'poping-Medium';
     th{
-        background-color:$primary_color_2;
+        background-color:#a688fc;
         color: white;
         padding: 10px 20px;  
         text-align: center;
@@ -98,7 +99,8 @@ table{
     transform: translate(100%, -105%);
 }
 #pop_up_on{
-    transform: translate(1%, -105%);
+    transform: translate(21%, -119%);
+    text-align: center;
 }
 .pop_up , .pop_up_user{
     position: fixed;
@@ -107,9 +109,10 @@ table{
 
     form{
         max-width: 70%;
-        background-color: $primary_color_2;
+        background-color: $primary_color_1;
         box-shadow: 1px 0px 17px 6Px black;
         color: white;
+        padding: 40Px;
         h2{
             font-family: 'RowanMaskide';
             font-size: 30px;
@@ -164,6 +167,7 @@ table{
             .btn_back_publish{
                 display: flex;
                 justify-content: center;
+                margin-top: 40px;
                 div{
                     width: 15%;
                     margin: 0px 25px;

@@ -38,7 +38,7 @@
 
 </head>
 
-<body>
+<body  class="login_page">
 
 	
 
@@ -46,7 +46,7 @@
 <!-- end header  -->
 
     <!-- start login form -->
-        <form action="inscri_insert.php" method="POST" class="login-form">
+        <!-- <form action="inscri_insert.php" method="POST" class="login-form">
             <div>
                 <label>Username</label>
                 <input type="text" name="username_insci" class="text-input">
@@ -69,8 +69,51 @@
             <p>Or <a href="login.php" >Login</a></p>
 
 
-        </form>
+        </form> -->
     <!-- end login form -->
+
+	<section >
+		<div class="container">
+			<div class="zone_form">
+				<div class="part-left">
+					<img src="assets/img/animation/undraw_Access_account_re_8spm.svg">
+					<h1>WEBLOG</h1>
+				</div>
+				<form action="inscri_insert.php" method="POST" >
+					<h2>Welcome in WEBLOG</h2>
+					<p>Please Enter your information</p>
+                    <div class="Email">
+						<label for="">Name</label>
+						<input type="text" name="username_insci">
+					</div>
+					<div class="Email">
+						<label for="">Email</label>
+						<input type="email"  name="email_inscri" >
+					</div>
+					<div class="Password">
+						<label for="">Password</label>
+						<input type="password" name="password_inscri">
+					</div>
+					<div class="Password">
+						<label for="">Confirm Passwrod </label>
+						<input type="password"  name="password_confirm" >
+					</div>
+					
+					<div class="checkout">
+						<input type="checkbox">
+						<p>Remember me?</p>
+					</div>
+					<div class="btn_login">
+						<input name="submit_inscri" type="submit" value="Sign up">
+						<a href="login.php">Or Login</a>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</section>
+
+
 
 
 

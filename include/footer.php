@@ -3,7 +3,8 @@
 			<div class="row">
 				<div class="col-md-4 col- phone-email-footer">
 					<div class="logo-footer">
-						<img src="assets/img/logo/1-02 1.svg">
+						<!-- <img src="assets/img/logo/1-02 1.svg"> -->
+						<h1>WEBLOG</h1>
 					</div>
 					<p>Amy normally hated Monday mornings, but this year was different
 					. Kamal was in her art class and she liked Kamal. She was waiting 

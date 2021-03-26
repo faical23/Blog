@@ -37,7 +37,7 @@
               <div class="container">
               <div >
                       <a href="index.php?topic=" class="brand">
-                          <h2>FAICAL LOGO</h2>
+                          <h2>WEBLOG</h2>
                       </a>
                   </div>
               <div>

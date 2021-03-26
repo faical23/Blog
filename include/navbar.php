@@ -23,7 +23,7 @@
               <div class="container">
               <div >
                       <a href="index.php?topic=" class="brand">
-                          <h2>FAICAL LOGO</h2>
+                          <h2>WEBLOG</h2>
                       </a>
                   </div>
               <div>
@@ -34,10 +34,14 @@
                           <li class="nav-item" >
                               <a  class="link_header" href="#about">About</a>
                           </li>
-                          <li class="nav-item" >
-                              <a class="link_header"  href="#hero" >Saves</a>
+                          <?php
+                                if (!empty($_SESSION['login']) && $_SESSION['login'] == "user") {
+                                    ?>
+                               <li class="nav-item" >
+                              <a class="link_header"  href="saves.php" >Saves</a>
                           </li>
                           <?php
+                                }
                             	if(empty($_SESSION['login']) )
                                 {
                             ?>
@@ -69,14 +73,14 @@
                                   </button>
                                   <a href="#">
                                       <div class="dropdown-menu ">
-                                          <a href="logout.php">
-                                            <button class="dropdown-item" type="button">Logout</button>
+                                          <a href="logout.php" class="dropdown-item">
+                                           Logout
                                           </a>
                                           <?php
                                             if ($_SESSION['login'] == "admin") {
                                             ?>
-                                            <a href="dashboard.php">
-                                                <button class="dropdown-item" type="button">Dashbord</button>
+                                            <a href="dashboard.php" class="dropdown-item">
+                                                Dashbord
                                             <a href="#">
                                           <?php
                                             }

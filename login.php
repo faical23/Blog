@@ -39,7 +39,7 @@
 
 </head>
 
-<body>
+<body class="login_page">
 
 	
 
@@ -47,7 +47,7 @@
 <!-- end header  -->
 
     <!-- start login form -->
-        <form action="" method="POST" class="login-form">
+        <!-- <form action="" method="POST" class="login-form">
             <div>
                 <label>Email</label>
                 <input type="text" name="email" class="text-input">
@@ -62,8 +62,41 @@
             <p>Or <a href="inscription.php" >Sign Up</a></p>
 
 
-        </form>
+        </form> -->
     <!-- end login form -->
+
+	<section >
+		<div class="container">
+			<div class="zone_form">
+				<div class="part-left">
+					<img src="assets/img/animation/undraw_Access_account_re_8spm.svg">
+					<h1>WEBLOG</h1>
+				</div>
+				<form action="" method="POST" >
+					<h2>Welcome back!</h2>
+					<p>Please login to your account</p>
+					
+					<div class="Email">
+						<label for="">Email</label>
+						<input type="email" name="email" >
+					</div>
+					<div class="Password">
+						<label for="">Password</label>
+						<input type="password" name="password_login" >
+					</div>
+					<div class="checkout">
+						<input type="checkbox">
+						<p>Remember me?</p>
+					</div>
+					<div class="btn_login">
+						<input name="login-btn" type="submit" value="Login">
+						<a href="inscription.php">Or Sign up</a>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</section>
 
 	<?php		
 
@@ -76,7 +109,7 @@
 
 			echo $email ."<br/>";
 			echo $password ."<br/>";
-			$sql_requet = mysqli_query($connection_DB,"SELECT * FROM  position WHERE email='$email' AND password = '$password' ");
+			$sql_requet = mysqli_query($connection_DB,"SELECT * FROM  position WHERE email='$email' ");
 						
 											
             if (mysqli_num_rows($sql_requet) ==  1) {
@@ -86,46 +119,37 @@
 
 					$position_user = $value["role"];
 					$id_user = $value["id"];
+					$user_password_hash = $value["password"];
 
 				}
-				echo $position_user . "<br/>";
-				echo $id_user . "<br/>";
-				$sql_requet_posiiton = mysqli_query($connection_DB,"SELECT * FROM  $position_user WHERE id = '$id_user'");
+                if (password_verify($password, $user_password_hash)) {
 
-				if(mysqli_num_rows($sql_requet_posiiton ) ==  1 )
-				{
-					$row = mysqli_fetch_array($sql_requet_posiiton);
+                    echo $position_user . "<br/>";
+                    echo $id_user . "<br/>";
+                    $sql_requet_posiiton = mysqli_query($connection_DB, "SELECT * FROM  $position_user WHERE id = '$id_user'");
 
-					$_SESSION["id"] = $id_user;
+                    if (mysqli_num_rows($sql_requet_posiiton) ==  1) {
+                        $row = mysqli_fetch_array($sql_requet_posiiton);
 
-					$_SESSION["login"] = "user";
-					
-					switch ($position_user) {
-						case "admin":
-							header('location: dashboard.php');
-							$_SESSION["login"] = "admin";
-							break;
-						case "user":
-							header('location: index.php?topic=');
-							// $_SESSION["user"] = "user";
-							break;
+                        $_SESSION["id"] = $id_user;
 
-					}
+                        $_SESSION["login"] = "user";
+                    
+                        switch ($position_user) {
+                        case "admin":
+                            header('location: dashboard.php');
+                            $_SESSION["login"] = "admin";
+                            break;
+                        case "user":
+                            header('location: index.php?topic=');
+                            echo $user_password_hash . "<br/>";
+                            break;
 
-					// if($position_user == "admin")
-					// {
-					// 	header('location: dashboard.php');
-					// 	$_SESSION["admin"] = "admin";
-					// }
-					// elseif($position_user == "user"){
-					// 	header('location: index.php?topic=');
-					// 	$_SESSION["user"] = "user";
-					// }
-
-					
-					echo "name is :" . $row["username"] . " from table " . $position_user;
-
-				}
+                    }
+                    
+                        echo "name is :" . $row["username"] . " from table " . $position_user;
+                    }
+                }
 			}
 			else{
 				echo "i not fin any one";
